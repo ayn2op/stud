@@ -4,21 +4,21 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-#define Vec(type)    \
+#define Vector(type) \
   struct {           \
     size_t length;   \
     size_t capacity; \
     type* items;     \
   }
 
-#define vec_new(vec)     \
+#define vector_new(vec)  \
   do {                   \
     (vec)->length = 0;   \
     (vec)->capacity = 0; \
     (vec)->items = NULL; \
   } while (0)
 
-#define vec_free(vec)    \
+#define vector_free(vec) \
   do {                   \
     free((vec)->items);  \
     (vec)->length = 0;   \
@@ -26,7 +26,7 @@
     (vec)->items = NULL; \
   } while (0)
 
-#define vec_push(vec, item)                                                 \
+#define vector_push(vec, item)                                              \
   do {                                                                      \
     if ((vec)->length == (vec)->capacity) {                                 \
       size_t new_capacity = (vec)->capacity == 0 ? 1 : (vec)->capacity * 2; \
@@ -39,7 +39,7 @@
     (vec)->items[(vec)->length++] = (item);                                 \
   } while (0)
 
-#define vec_length(vec) ((vec)->length)
-#define vec_is_empty(vec) ((vec)->length == 0)
+#define vector_length(vec) ((vec)->length)
+#define vector_is_empty(vec) ((vec)->length == 0)
 
 #endif
