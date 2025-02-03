@@ -39,7 +39,4 @@
     (vec)->items[(vec)->length++] = (item);                                 \
   } while (0)
 
-#define vector_length(vec) ((vec)->length)
-#define vector_is_empty(vec) ((vec)->length == 0)
-
 #endif
